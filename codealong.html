@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+                font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+            .container {
+                display: flexbox;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .block {
+                position: absolute;
+                height: 200px;
+                width: 200px;
+                transition: all;
+                transition-duration: 1s;
+                overflow: hidden;
+            }
+            .block-1 {
+                z-index: 1;
+                left: 525px;
+                transform: scale(0.9);
+            }
+            .block-2 {
+                z-index: 2;
+                left: 650px;
+            }
+            .block-3 {
+                z-index: 0;
+                left: 785px;
+                transform: scale(0.9);
+            }
+            #b-1 {
+                background-color: red;
+            }
+            #b-2 {
+                background-color: royalblue;
+            }
+            #b-3 {
+                background-color: greenyellow;
+            }
+            .button-box {
+                position: absolute;
+                top: 350px;
+            }
+            button{
+                border: none;
+                height: 50px;
+                width: 100px;
+                font-weight: bold;
+                font-size: medium;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Animation</h1>
+        <div class="container">
+            <div class="block block-1" id="b-1"></div>
+            <div class="block block-2" id="b-2"></div>
+            <div class="block block-3" id="b-3"></div>
+        </div>
+        <div class="button-box">
+            <button onclick="prevchange()" class="button">Prev</button>
+            <button onclick="nextchange()" class="button">Next</button>
+        </div>
+
+        <script>
+            function prevchange() {
+                if (
+                    document.getElementById("b-1").classList.contains("block-1")
+                ) {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-1", "block-2");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-2", "block-3");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-3", "block-1");
+                } else if (
+                    document.getElementById("b-1").classList.contains("block-2")
+                ) {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-2", "block-3");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-3", "block-1");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-1", "block-2");
+                } else {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-3", "block-1");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-1", "block-2");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-2", "block-3");
+                }
+            }
+            function nextchange() {
+                if (
+                    document.getElementById("b-1").classList.contains("block-1")
+                ) {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-1", "block-3");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-2", "block-1");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-3", "block-2");
+                } else if (
+                    document.getElementById("b-1").classList.contains("block-2")
+                ) {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-2", "block-1");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-3", "block-2");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-1", "block-3");
+                } else {
+                    document
+                        .getElementById("b-1")
+                        .classList.replace("block-3", "block-2");
+                    document
+                        .getElementById("b-2")
+                        .classList.replace("block-1", "block-3");
+                    document
+                        .getElementById("b-3")
+                        .classList.replace("block-2", "block-1");
+                }
+            }
+        </script>
+    </body>
+</html>
